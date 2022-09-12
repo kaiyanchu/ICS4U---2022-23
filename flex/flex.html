@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Flex Examples</title>
+    <style>
+        #container{
+            background-color: 	#b9d7ea;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 500px;
+        }
+
+        .item{
+            background-color: lightslategray;
+            height: 200px;
+            flex-basis: 10%;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .bigger{
+            flex-basis: 20%;
+            order: 4;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="item">1</div>
+        <div class="item bigger">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>
