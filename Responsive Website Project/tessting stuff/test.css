@@ -1,0 +1,29 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.underline-hover-effect{
+    display: inline-block;
+    padding-bottom: 0.25rem; /*how much space underline will have*/
+    position: relative;
+}
+
+.underline-hover-effect::before{
+    content:"";
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:0%;
+    height: 2px;
+    background-color: black;
+    transition: width 0.25s ease-out;
+
+}
+
+.underline-hover-effect:hover::before{
+    width: 100%;
+    left: 0;
+    right: auto;
+}
