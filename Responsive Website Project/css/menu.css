@@ -14,7 +14,7 @@ body{
 
 .container{
     max-width: 960px;
-    margin: 100px auto;
+    margin: auto;
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -39,15 +39,31 @@ body{
     grid-column: 1/3;
 }
 
-.menu-item{
+
+.alignleft {
+	float: left;
+    font-size: 20px;
+}
+.alignright {
+	float: right;
+    font-size: 20px;
+}
+
+
+/*
+.item li{
     display: flex;
 }
-.menu-item:nth-of-type(1){
+
+.item li{
     justify-content: flex-start;
 }
-.menu-item:nth-of-type(2){
+
+.item .price{
     justify-content: flex-end;
 }
+
+*/
 
   
 /*
