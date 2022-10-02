@@ -1,30 +1,29 @@
 /* Styles for the whole website*/
 @import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
 
+html { /* no scrolling horizontally*/
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body{
     margin: 0;
     font-family: 'Brandon Grotesque Regular', sans-serif;
+    font-style:normal;  
     background: #fffbff;
     text-align: center;
 }
 
-/* Navbar */
-.navbar{
-    background-color: #92817A;
-    height: 50 px;
-}
-
-
-
+/* Navbar, hamburger menu tutorial https://www.youtube.com/watch?v=XM7sEpl0f7c */
 .navbar a{
     color: #000000;
     text-decoration: none;
     font-size: 20px;
     font-weight: 100;
-}
+}  
 
 
-/* special underline thing from https://www.youtube.com/watch?v=Kz96odltLQI*/
+/* special underline hover effect thing from https://www.youtube.com/watch?v=Kz96odltLQI*/
 
 .underline-hover-effect{
     display: inline-block; /*makes it an inline element but can have height and width*/
@@ -49,26 +48,166 @@ body{
 }
 
 
-.navbar .container{
+
+  .navbar{
+    position: relative; /*changes the position to make it relative to its parent*/
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #92817A;
+    padding: 0 25px;
+    transition: 0.3s; /*controls animation speed when the thing is changing*/
+    height: 50;
+  }
+  
+
+
+  .logo a{
+    display: block;
+  }
+  
+  .logo a img{
+    display: block;
+    width: 100%;
+  }
+  
+  .navbar .container{
+    margin-right: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90%;
-}
-.navbar ul{
+  }
+  
+
+  .menu{
     display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1; /*what order the elements stack in*/
+    transition: 0.5s;
+  }
+  
+  .menu li{
     list-style-type: none;
-    margin-right: 2%
-}
-.navbar ul li{
-    margin-left: 35px;
-}
+  }
+  
+  .menu li a{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 5px 25px 5px 25px;
+    font-size: 20px;
+    line-height: 1;
+    transition: 0.3s;
+  }
+  
+  .hamburger{ /* center line*/
+    position: relative;
+    width: 30px;
+    height: 4px;
+    background: black;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.3s;
+  }
+  
+  .hamburger:before,
+  .hamburger:after{ /*top and bottom line*/
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 0;
+    background: black;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  .hamburger:before{ /*creates line  above center line*/
+    top: -10px;
+    width: 20px;
+  }
+  
+  .hamburger:after{ /*creates line below center line*/
+    top: 10px;
+    width: 25px;
+  }
+  
+  .toggle-menu{ /* basically the hamburger is a checkbox that you can't see under the lines*/
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0; /*cant see the checkbox*/
+  }
+  
+  .hamburger,
+  .toggle-menu{ /*makes you not see the hamburger unless on the specified media query*/
+    display:none;
+  }
+  
+  .container input:checked ~ .hamburger{ /*when the checkbox is checked make the line disapear*/
+    background: transparent;
+  }
+  
+  .container input:checked ~ .hamburger:before{ /*when it is checked top line will rotate -45 degrees*/
+    top:0;
+    transform: rotate(-45deg);
+    width:30px;
+  }
+  
+  .container input:checked ~ .hamburger:after{ /*when it is checked bottom line will rotate 45 degrees*/
+    top:0;
+    transform: rotate(45deg);
+    width:30px;
+  }
+  
+  .container input:checked ~.menu{ /*when it is checked it doesn't push the navbar away anymore (Right is different from margin right, because in margin you are moving the element itself but when you use "right" it pushes other things away*/
+    right: 0;
+  }
+  
+  @media screen and (max-width: 992px){ /*makes the hamburger appear when the screen is smaller then 992px*/
+  
+    .navbar{
+      padding: 10px 20px;
+    }
+    .hamburger,
+    .toggle-menu{
+      display:block;
+    }
+  
+    .menu{ /*makes the navbar menu go vertically and when it is not checked it pushes it to the right*/
+      justify-content: start;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top:0;
+      right: -400px;
+      background: #92817A;
+      width: 300px;
+      height: 100%;
+      padding-top: 65px;
+      padding-left: 0;
+    }
+  
+    .menu li{
+      width: 100%;
+    }
+  
+    .menu li a,
+    .menu li a:hover{
+        padding: 30px;
+        font-size: 24px;
+        box-shadow: 0 1px 0 white;
+        
+    }
+  }
 
-
-.socials{
-    height: 10px;
-    width: 10px;
-}
+/*header / showcase */
 #header{
     display: flex;
     height: 200px;
@@ -106,42 +245,7 @@ body{
     opacity: 0.5;
 }
 
-
-#boxes ul{
-    margin-top: 50px;
-    display:flex;
-    list-style-type: none;
-    justify-content: space-around;
-    align-items: center;
-
-}
-#boxes img{
-    margin: auto;
-    width: 90%;
-}
-
-#location{
-    margin-top: 50px;
-    background-color: #F1DABF;
-    margin-bottom: 0;
-}
-#location ul{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    text-align: left;
-    align-items: center;
-    list-style-type: none;
-}
-
-#location ul li :nth-child(2) {
-    padding-right: 20%;
-}
-
-
-
-
-
+/*footer*/
 footer, footer a{
     margin-top: 0;
     color: #fff;
@@ -163,11 +267,28 @@ footer p{
     margin-bottom:0;
     padding-bottom: 1em;
 }
+ 
+
+/*HOME PAGE*/
+/*boxes*/
+#boxes ul{
+    margin-top: 50px;
+    display:flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+
+}
+#boxes img{
+    margin: auto;
+    width: 90%;
+}
+
 
 @media (max-width: 800px) {
 
 
-    #boxes ul{
+    #boxes ul{ /*makes the boxes go vertically*/
         flex-direction: column;
         justify-content: center;
     }
@@ -176,11 +297,33 @@ footer p{
         width: 80%;
     }
 
-    #location ul{
+    #location ul{ /*makes the boxes go vertically*/
         flex-direction: column;
     }
 }
 
+
+/*location area + map*/
+
+#location{
+    margin-top: 50px;
+    background-color: #F1DABF;
+    margin-bottom: 0;
+}
+#location ul{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: left;
+    align-items: center;
+    list-style-type: none;
+}
+
+#location ul li :nth-child(2) {
+    padding-right: 20%;
+}
+
+/* MAKE A RESERVATION PAGE*/
 .reserve{
     max-width: 960px;
     margin: auto;
@@ -190,18 +333,19 @@ footer p{
     text-align: left;
 }
 
+/* styles the forms*/
 .form{
     width: 450px;    
     margin: 0;
     background-color: #F1DABF;
     padding: 2em;
 }
+
 label {
     display: block;
     width: 150px;
     float: left;
 }
-
 
 .hours-open{
     padding: 2em;
@@ -212,6 +356,7 @@ label {
     font-weight: bold;
 
 }
+
 .hours-open ul{
     text-decoration: none;
     list-style-type: none; 
@@ -230,6 +375,10 @@ label {
     width: 7em
 }
 
+.button:hover{
+    background-color: black;
+}
+
 input{
     background-color: white;
     border-radius: 7px;
@@ -238,21 +387,18 @@ input{
     font-weight: bold;
 }
 
-
-
-.button:hover{
-    background-color: black;
-}
-
+/*makes the label be displayed above the form*/
 .vertical{
     display: flex;
     flex-direction: column;
 }
 
+.reserve img{
+    width: 45%;
+}
 
+/* GALLERY PAGE*/
 
-
-/* gallery */
 .container-gallery{
     max-width: 960px;
     margin: auto;
@@ -262,6 +408,7 @@ input{
    /* grid-auto-rows: minmax(200px, auto);*/
    gap: 10px;
    height: 100vh;
+   overflow-y:scroll;
    
 }
 
@@ -290,11 +437,104 @@ input{
     grid-row: 6/8;
 }
 
-.reserve img{
-    width: 45%;
+
+/* ABOUT US*/
+
+.half-page{
+
+    display:grid;
+    height: 100vh;
+    width: 100vw;
+    padding: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+}
+
+.about-us:nth-of-type(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    height: 650px;
+    background-color: #F1DABF;
+}
+
+.about-us:nth-of-type(2){
+    background: url(../images/shells.png);
+    background-repeat: no-repeat;
+    height: 650px ;
+    background-size: cover;
+}
+
+/*MENU*/
+
+/*
+body{
+    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+    background: #f5f5f5;
+}
+*/
+
+
+
+.menu-sections{
+    max-width: 960px;
+    margin: auto;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+   /* grid-auto-rows: minmax(200px, auto);*/
+    gap: 0px;
+    height: 100vh;
+    margin-bottom: 22.5%;
+    font-family: futura-pt, sans-serif;
+    
+}
+
+#crying ul{
+    list-style:none;
+}
+
+.item{
+    background-color: #ecdcd4;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border-bottom: solid 1px black;
+    grid-column: 1-3;
+
+} 
+
+.menu-sections .item:nth-of-type(1), .menu-sections .item:nth-of-type(2){
+    grid-column: 1/4;
+}
+.menu-sections .item:nth-of-type(3){
+    grid-column: 1/3;
+    border-right: solid 1px black;
 }
 
 
+.alignleft {
+	float: left;
+    font-size: 20px;
+}
+.alignright {
+	float: right;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+/* gallery */
 
 
 
