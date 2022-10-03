@@ -1,11 +1,7 @@
 /* Styles for the whole website*/
 @import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
 
-html {
-    /* no scrolling horizontally*/
-    max-width: 100%;
-    overflow-x: hidden;
-}
+
 
 body {
     margin: 0;
@@ -63,12 +59,11 @@ body {
 .navbar {
     position: relative;
     /*changes the position to make it relative to its parent*/
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #92817A;
-    padding: 0 25px;
+    padding: 0 25px ;
     transition: 0.3s;
     /*controls animation speed when the thing is changing*/
     height: 50;
@@ -293,7 +288,7 @@ footer h4 {
 }
 
 footer p {
-    font-size: 10px;
+    font-size: 16px;
     margin-bottom: 0;
     padding-bottom: 1em;
 }
@@ -353,8 +348,24 @@ footer p {
     list-style-type: none;
 }
 
+
 #location ul li :nth-child(2) {
     padding-right: 20%;
+}
+
+/*hides the small map*/
+.smallmap{
+    display: none;
+}
+
+/*displays the smaller map and hides the bigger map*/
+@media (max-width: 600px){
+    .bigmap{
+        display: none;
+    }
+    .smallmap{
+        display: contents;
+    }
 }
 
 /* MAKE A RESERVATION PAGE*/
@@ -441,10 +452,6 @@ input {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    height: 100vh;
-    overflow-y: scroll;
-    /*makes the extra grid that doesn't fit on the page to be scrollable*/
-
 }
 
 /*the images fill up the grid boxes*/
@@ -480,11 +487,9 @@ input {
 .half-page {
     /*makes the page into the grid so it splits it up with one being the image and the other side being the about us*/
     display: grid;
-    height: 100vh;
-    width: 100vw;
     padding: 5px;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0px;
+    gap: 0;
 }
 
 /*about us side styling*/
@@ -515,8 +520,6 @@ input {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0px;
-    height: 100vh;
-    margin-bottom: 22.5%;
 }
 
 .item {
@@ -527,7 +530,14 @@ input {
     padding: 20px;
     border-bottom: solid 1px black;
     grid-column: 1-3;
+}
 
+.item ul{
+    list-style-type: none;
+}
+
+.item p{
+    margin: 0;
 }
 
 .menu-sections .item:nth-of-type(1),
@@ -554,3 +564,12 @@ input {
     float: right;
     font-size: 20px;
 }
+
+.item-description{
+    text-align: left;
+    float: left;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
