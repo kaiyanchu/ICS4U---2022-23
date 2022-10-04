@@ -12,16 +12,34 @@ body {
 }
 
 /* Navbar, hamburger menu tutorial https://www.youtube.com/watch?v=XM7sEpl0f7c */
+
+.navbar {
+    position: relative;
+    /*changes the position to make it relative to its parent*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #92817A;
+    padding: 0 25px ;
+    transition: 0.3s;
+    /*controls animation speed when the thing is changing*/
+    height: 50;
+}
 .navbar a {
     color: #000000;
     text-decoration: none;
     font-size: 20px;
     font-weight: 100;
 }
-
+.navbar .container {
+    margin-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+}
 
 /* special underline hover effect thing from https://www.youtube.com/watch?v=Kz96odltLQI*/
-
 .underline-hover-effect {
     display: inline-block;
     /*makes it an inline element but can have height and width*/
@@ -29,7 +47,6 @@ body {
     /*how much space between underline and text*/
     position: relative;
 }
-
 .underline-hover-effect::before {
     /*before it is hovered*/
     content: "";
@@ -47,47 +64,19 @@ body {
     /*makes the transition smooth and occur in 0.25 seconds*/
 
 }
-
 .underline-hover-effect:hover::before {
     /*when its hovered*/
     width: 100%;
     /*how much of the underline you see*/
 }
 
-
-
-.navbar {
-    position: relative;
-    /*changes the position to make it relative to its parent*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #92817A;
-    padding: 0 25px ;
-    transition: 0.3s;
-    /*controls animation speed when the thing is changing*/
-    height: 50;
-}
-
-
-
 .logo a {
     display: block;
 }
-
 .logo a img {
     display: block;
     width: 100%;
 }
-
-.navbar .container {
-    margin-right: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 90%;
-}
-
 
 .menu {
     display: flex;
@@ -167,10 +156,11 @@ body {
 }
 
 .container input:checked~.hamburger {
-    /*when the checkbox is checked make the line disapear*/
+    /*when the checkbox is checked make the line dissapear*/
     background: transparent;
 }
 
+/*the rotations create the x once it is checked*/
 .container input:checked~.hamburger:before {
     /*when it is checked top line will rotate -45 degrees*/
     top: 0;
@@ -184,89 +174,11 @@ body {
     transform: rotate(45deg);
     width: 30px;
 }
-
 .container input:checked~.menu {
     /*when it is checked it doesn't push the navbar away anymore (Right is different from margin right, because in margin you are moving the element itself but when you use "right" it pushes other things away*/
     right: 0;
 }
 
-@media screen and (max-width: 992px) {
-    /*makes the hamburger appear when the screen is smaller then 992px*/
-
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .hamburger,
-    .toggle-menu {
-        display: block;
-    }
-
-    .menu {
-        /*makes the navbar menu go vertically and when it is not checked it pushes it to the right*/
-        justify-content: start;
-        flex-direction: column;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        right: -400px;
-        background: #92817A;
-        width: 300px;
-        height: 100%;
-        padding-top: 65px;
-        padding-left: 0;
-    }
-
-    .menu li {
-        width: 100%;
-    }
-
-    .menu li a,
-    .menu li a:hover {
-        padding: 30px;
-        font-size: 24px;
-        box-shadow: 0 1px 0 white;
-
-    }
-}
-
-/*header / showcase */
-#header {
-    display: flex;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    background-color: lightgrey;
-    background: url(../images/carbonara.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 450px;
-    opacity: 0.4;
-}
-
-#showcase {
-    display: flex;
-    height: 500px;
-    color: #000000;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-}
-
-#showcase .background-image {
-    position: absolute;
-    background: url(../images/carbonara.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
-    z-index: -1;
-    opacity: 0.5;
-}
 
 /*footer*/
 footer,
@@ -295,6 +207,30 @@ footer p {
 
 
 /*HOME PAGE*/
+/*header / showcase (for main page only) */
+#showcase { /*displayed as flex so it can be centred*/
+    display: flex;
+    height: 500px;
+    color: #000;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+/*determines how the background of the showcase area is going to look*/
+#showcase .background-image {
+    position: absolute;
+    background: url(../images/carbonara.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
 /*boxes*/
 #boxes ul {
     margin-top: 50px;
@@ -311,34 +247,14 @@ footer p {
 }
 
 
-@media (max-width: 800px) {
-
-
-    #boxes ul {
-        /*makes the boxes go vertically*/
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    #boxes img {
-        width: 80%;
-    }
-
-    #location ul {
-        /*makes the boxes go vertically*/
-        flex-direction: column;
-    }
-}
-
 
 /*location area + map*/
-
 #location {
     margin-top: 50px;
     background-color: #F1DABF;
     margin-bottom: 0;
 }
-
+/*makes the map and description viewed as flex*/
 #location ul {
     display: flex;
     justify-content: center;
@@ -358,15 +274,7 @@ footer p {
     display: none;
 }
 
-/*displays the smaller map and hides the bigger map*/
-@media (max-width: 600px){
-    .bigmap{
-        display: none;
-    }
-    .smallmap{
-        display: contents;
-    }
-}
+
 
 /* MAKE A RESERVATION PAGE*/
 .reserve {
@@ -573,3 +481,69 @@ input {
 }
 
 
+/*NAVBAR MEDIA QUERY*/
+@media (max-width: 900px) {
+    /*makes the hamburger appear when the screen is smaller then 992px*/
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .hamburger,
+    .toggle-menu {
+        display: block;
+    }
+
+    .menu {
+        /*makes the navbar menu go vertically and when it is not checked it pushes it to the right*/
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: -400px;
+        background: #92817A;
+        width: 300px;
+        height: 100%;
+        padding-top: 65px;
+        padding-left: 0;
+    }
+    .menu li {
+        width: 100%;
+    }
+    .menu li a,
+    .menu li a:hover {
+        padding: 30px;
+        font-size: 24px;
+        box-shadow: 0 1px 0 white;
+    }
+}
+
+/* HOME PAGE MEDIA QUERIES*/
+/*once the width is less than 800px, the boxes and location go vertically*/
+@media (max-width: 800px) {
+    #boxes ul {
+        /*makes the boxes go vertically*/
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #boxes img {
+        width: 80%;
+    }
+
+    #location ul {
+        /*makes the map and description go vertically*/
+        flex-direction: column;
+    }
+}
+
+/*displays the smaller map and hides the bigger map*/
+@media (max-width: 600px){
+    .bigmap{
+        display: none;
+    }
+    .smallmap{
+        display: contents;
+    }
+}

@@ -12,48 +12,46 @@
 </head>
 <body>
     <!--Navbar-->
+    <div class="logo"> <!--on the left logo-->
+        <a href="index.html">
+          Lorem Ipsum Café
+        </a>
+    </div>
+    <div class="container">
+        <input type="checkbox" class="toggle-menu"> <!--Checkbox to determine if the menu is open or closed-->
+        <div class="hamburger"></div> <!--Three lines made in the css-->
 
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html">
-              Lorem Ipsum Café
-            </a>
-        </div>
-        <div class="container">
-            <input type="checkbox" class="toggle-menu">
-            <div class="hamburger"></div>
+        <ul class="menu">
+            <li>
+                <a href="index.html" class="underline-hover-effect">Home</a>
+            </li>
+            <li>
+                <a href="menu.html"class="underline-hover-effect">Menu</a>
+            </li>
+            <li>
+                <a href="gallery.html"class="underline-hover-effect">Gallery</a>
+            </li>
+            <li>
+                <a href="about.html"class="underline-hover-effect">About Us</a>
+            </li>
+            <li>
+                <a href="reserve.html"class="underline-hover-effect">Make a Reservation</a>
+            </li>
 
-            <ul class="menu">
-                <li>
-                    <a href="index.html" class="underline-hover-effect">Home</a>
-                </li>
-                <li>
-                    <a href="menu.html"class="underline-hover-effect">Menu</a>
-                </li>
-                <li>
-                    <a href="gallery.html"class="underline-hover-effect">Gallery</a>
-                </li>
-                <li>
-                    <a href="about.html"class="underline-hover-effect">About Us</a>
-                </li>
-                <li>
-                    <a href="reserve.html"class="underline-hover-effect">Make a Reservation</a>
-                </li>
-
-            </ul>
-        </div>
-       </nav>
-    <!--Top Area With Title-->
+        </ul>
+    </div>
+   </nav>
 
 
+   <!--Header-->
     <header>
         <h1>Make a Reservation</h1>
     </header>
     
+    <!--Container containing the main stuff on the page-->
     <div class="container-reserve">
-
-    <div class="reserve">
-        <div class="hours-open">
+    <div class="reserve"> 
+        <div class="hours-open"> <!--Dining Hours-->
             <h2>Dining Hours</h2>
             <ul>
                 <li>
@@ -66,7 +64,7 @@
                 </li>
             </ul>
         </div>
-        <div class="form">
+        <div class="form"> <!--Forms-->
             <form>
             <div class="vertical">
                 <label>Date:</label>
@@ -93,15 +91,13 @@
     </div>      
     </div>
 
+    <!--Images-->
     <div class="reserve">
         <img src="./images/cake.png" alt="">
         <img src="./images/brownie.png" alt="">
     </div>
 
 </div>
-
-
-
 
 
     <!--Footer-->
