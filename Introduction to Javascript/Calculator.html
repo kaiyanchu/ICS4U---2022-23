@@ -100,9 +100,15 @@ function calculate(input){
    console.log('hello');
    indexOperator = operatorIndex(input);
    firstNum = Number(input.substring(0, indexOperator));
-   secondNum = Number(input.substring(indexOperator + 1));
+   secondNum = (input.substring(indexOperator + 1));
 
-   if(isNaN(secondNum) || isNaN(firstNum)){
+   if(secondNum === ''){
+      return 'ERROR';
+   }else{
+      secondNum = Number(secondNum);
+   }
+
+   if(isNaN(secondNum) || isNaN(firstNum) || secondNum ){
       return 'ERROR';
    }
 
