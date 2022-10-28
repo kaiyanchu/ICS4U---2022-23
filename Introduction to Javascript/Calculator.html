@@ -108,6 +108,10 @@ function calculate(input){
       secondNum = Number(secondNum);
    }
 
+   if(indexOperator === -1){
+      return input;
+   }
+
    if(isNaN(secondNum) || isNaN(firstNum)){
       return 'ERROR';
    }
