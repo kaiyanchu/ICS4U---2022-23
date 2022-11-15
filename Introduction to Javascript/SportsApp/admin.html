@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="sportsStatistics.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="./images/Premier League Logo.png">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="sportsStatistics.html" class="navbar-item">
+              League Standings
+            </a>
+      
+            <a href="#" class="navbar-item">
+              Add Games
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="games.html" class="navbar-item">
+                    Games
+                </a>
+            </div>
+        </div>
+      </nav>
+
+
+
+      <p class="title">
+        Add Games      
+      </p>
+    <div class="message-container"></div>
+
+
+    <div class="columns">
+        <div class="column">
+            <p>Home team</p>
+            <div class="select">
+                <select id="homeTeam">
+                    <option value="0">AFC Bournemouth</option>
+                    <option value="1">Arsenal</option>
+                    <option value="2">Aston Villa</option>
+                    <option value="3">Brentford</option>
+                    <option value="4">Brighton and Hove Albion</option>
+                    <option value="5">Chelsea</option>
+                    <option value="6">Crystal Palace</option>
+                    <option value="7">Everton</option>
+                    <option value="8">Fulham</option>
+                    <option value="9">Leeds United</option>
+                    <option value="10">Leicester City</option>
+                    <option value="11">Liverpool</option>
+                    <option value="12">Manchester City</option>
+                    <option value="13">Manchester United</option>
+                    <option value="14">Newcastle United</option>
+                    <option value="15">Nottingham Forest</option>
+                    <option value="16">Southampton</option>
+                    <option value="17">Tottenham Hotspur</option>
+                    <option value="18">West Ham United</option>
+                    <option value="19">Wolverhampton Wanderers</option>
+                </select>
+                <input class="input" type="number" id="homeScore"placeholder="Home Score">
+              </div>
+        </div>
+        <div class="column">
+            <p>Away Team</p>
+            <div class="select">
+                <select id="awayTeam">
+                    <option value="0">AFC Bournemouth</option>
+                    <option value="1">Arsenal</option>
+                    <option value="2">Aston Villa</option>
+                    <option value="3">Brentford</option>
+                    <option value="4">Brighton and Hove Albion</option>
+                    <option value="5">Chelsea</option>
+                    <option value="6">Crystal Palace</option>
+                    <option value="7">Everton</option>
+                    <option value="8">Fulham</option>
+                    <option value="9">Leeds United</option>
+                    <option value="10">Leicester City</option>
+                    <option value="11">Liverpool</option>
+                    <option value="12">Manchester City</option>
+                    <option value="13">Manchester United</option>
+                    <option value="14">Newcastle United</option>
+                    <option value="15">Nottingham Forest</option>
+                    <option value="16">Southampton</option>
+                    <option value="17">Tottenham Hotspur</option>
+                    <option value="18">West Ham United</option>
+                    <option value="19">Wolverhampton Wanderers</option>
+                </select>
+                <input class="input" type="number" id="awayScore" placeholder="Away Score">
+                <button class="button" onclick="addGame()">Add Game</button>
+              </div>
+        </div>
+
+        <div class="column">
+            <p>Date</p>
+            <input type="date" id="date">
+
+        </div>
+
+      </div>
+      
+    
+   
+
+
+</body>
+
+<script>
+
+const messageDisplay = document.querySelector('.message-container')
+
+        let teamData;
+        let games = [];
+
+
+    function get() {
+        teamData = JSON.parse(localStorage['teams']);
+        console.log(teamData);
+        // console.log(JSON.parse(localStorage['games']));
+        // if(JSON.parse(localStorage['games']) !== null){
+        //     games = JSON.parse(localStorage['games']);
+        // }
+    }
+
+    function addGame(){
+        //figure out how to make these the id or smth
+        let homeTeam = document.getElementById("homeTeam").value;
+        let awayTeam = document.getElementById("awayTeam").value;
+        let homeScore = document.getElementById("homeScore").value;
+        let awayScore = document.getElementById("awayScore").value;
+        let date = document.getElementById("date").value;
+
+        console.log(homeTeam + awayTeam + homeScore + awayScore + date);
+
+        if(homeTeam === awayTeam){
+            showMessage('Please enter different home and away Teams.');
+        }
+        else{
+            const game = {
+                'homeTeam': homeTeam,
+                'awayTeam': awayTeam,
+                'homeScore': homeScore,
+                'awayScore': awayScore,
+                'date': date
+            }
+            get();
+            games.push(game);
+            teamData[homeTeam].games.push(game);
+            console.log(teamData);
+            teamData[awayTeam].games.push(game);
+            localStorage.setItem('teams', JSON.stringify(teamData));
+            localStorage.setItem('games', JSON.stringify(games));
+            
+        }
+
+
+    }
+
+
+const showMessage = (message)=>{
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    messageDisplay.append(messageElement);
+    setTimeout(()=> messageDisplay.removeChild(messageElement), 2000);
+}
+
+</script>
+
+</html>

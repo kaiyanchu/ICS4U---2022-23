@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="stylesheet" href="sportsStatistics.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            <img src="./images/Premier League Logo.png">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -26,60 +27,28 @@
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item">
-              Home
+              League Standings
             </a>
       
-            <a class="navbar-item">
-              Documentation
+            <a href="admin.html" class="navbar-item">
+              Add Games
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="games.html" class="navbar-item">
+                    Games
                 </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
             </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </nav>
 
 
-    <section class="hero is-link">
-        <div class="hero-body">
           <p class="title">
             Premier League Standings
           </p>
-          <p class="subtitle">
-            I hope you are having a great day!
-          </p>
+
         </div>
       </section>
     <div>  
@@ -96,20 +65,23 @@
         </table>
     </div>
 </body>
+
+
+
 <script>
     let teamData;
     let teams = [];
     let team = {};
         team['Name'] = 'AFC Bournemouth';
-        team['id'] = 1;
+        team['id'] = 0;
         team['W'] = 7;
         team['L'] = 0;
         team['PTS'] = 0;
-        team['games'] = [];
+        team['games'] = []; 
         teams.push(team);
     team = {};
         team['Name'] = 'Arsenal';
-        team['id'] = 2;
+        team['id'] = 1;
         team['W'] = 0;
         team['L'] = 3;
         team['PTS'] = 5;
@@ -117,7 +89,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Aston Villa';
-        team['id'] = 3;
+        team['id'] = 2;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -125,7 +97,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Brentford';
-        team['id'] = 4;
+        team['id'] = 3;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -133,7 +105,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Brighton & Hove Albion';
-        team['id'] = 5;
+        team['id'] = 4;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -141,7 +113,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Chelsea';
-        team['id'] = 6;
+        team['id'] = 5;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -149,7 +121,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Crystal Palace';
-        team['id'] = 7;
+        team['id'] = 6;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -157,7 +129,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Everton';
-        team['id'] = 8;
+        team['id'] = 7;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -165,7 +137,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Fulham';
-        team['id'] = 9;
+        team['id'] = 8;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -173,7 +145,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Leeds';
-        team['id'] = 10;
+        team['id'] = 9;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -181,7 +153,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Leicester';
-        team['id'] = 11;
+        team['id'] = 10;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -189,7 +161,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Liverpool';
-        team['id'] = 12;
+        team['id'] = 11;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -197,7 +169,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Manchester City';
-        team['id'] = 13;
+        team['id'] = 12;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -205,7 +177,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Manchester United';
-        team['id'] = 14;
+        team['id'] = 13;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -213,7 +185,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Newcastle United';
-        team['id'] = 15;
+        team['id'] = 14;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -221,7 +193,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Nottingham Forest';
-        team['id'] = 16;
+        team['id'] = 15;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -229,7 +201,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Southampton';
-        team['id'] = 17;
+        team['id'] = 16;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -237,7 +209,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Tottenham Hotspur';
-        team['id'] = 18;
+        team['id'] = 17;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -245,7 +217,7 @@
         teams.push(team);
     team = {};
         team['Name'] = 'West Ham United';
-        team['id'] = 19;
+        team['id'] = 18;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
@@ -253,17 +225,16 @@
         teams.push(team);
     team = {};
         team['Name'] = 'Wolverhampton Wanderers';
-        team['id'] = 20;
+        team['id'] = 19;
         team['W'] = 0;
         team['L'] = 0;
         team['PTS'] = 0;
         team['games'] = [];
         teams.push(team);
 
-    //  let teamsData = JSON.stringify(teams);
-    //  teamsData = JSON.parse(teams)
-
     console.log(teams);
+    
+    localStorage.setItem('teams', JSON.stringify(teams));
 
     createTable(teams);
 
@@ -291,25 +262,67 @@
             tableBody.appendChild(row);
         });
     }
+
+    let isAtoZ;
+    let isMostWins;
+    let isMostLosses;
+    let isMostPTS;
+
         function sort(field){
             if (field === 'Name'){
-                teams = teams.sort((teamA, teamB)=>{
-                    return(teamA.Name < teamB.Name ? -1 : 1)
-                })
+                if(!isAtoZ){
+                    isAtoZ = true;
+                    teams = teams.sort((teamA, teamB)=>{
+                        return(teamA.Name < teamB.Name ? -1 : 1)
+                    })
+                }else{
+                    teams = teams.sort((teamA, teamB)=>{
+                        isAtoZ = false;
+                        return(teamA.Name > teamB.Name ? -1 : 1)
+                    })
+                }
+
     
             }else if(field ==='PTS'){
-                teams = teams.sort((teamA, teamB)=>
-                   (teamB.PTS - teamA.PTS)
-                )
+                if(!isMostPTS){
+                    isMostPTS = true;
+                    teams = teams.sort((teamA, teamB)=>
+                        (teamB.PTS - teamA.PTS)
+                    )
+                }else{
+                    isMostPTS = false;
+                    teams = teams.sort((teamA, teamB)=>
+                        (teamA.PTS - teamB.PTS)
+                    )
+                }
+
             }else if(field === 'Wins'){
-                teams = teams.sort((teamA, teamB) =>
+                if(!isMostWins){
+                    isMostWins = true;
+                    teams = teams.sort((teamA, teamB) =>
                     (teamB.W - teamA.W))
+                } else{
+                    isMostWins = false;
+                    teams = teams.sort((teamA, teamB) =>
+                    (teamA.W - teamB.W))
+                }
             }else if(field === 'Losses'){
-                teams = teams.sort((teamA, teamB) =>
-                (teamB.L - teamA.L))
+                if(!isMostLosses){
+                    isMostLosses = true;
+                    teams = teams.sort((teamA, teamB) =>
+                         (teamB.L - teamA.L)
+                    )
+                }else{
+                    isMostLosses = false;
+                    teams = teams.sort((teamA, teamB) =>
+                         (teamA.L - teamB.L)
+                    )
+                }
+
             }
             createTable(teams);
          }
 
 </script>
+
 </html>
