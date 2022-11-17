@@ -1,0 +1,13 @@
+@import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
+*{
+    font-family: "Radikal"; 
+}
+.title {
+    color: #3d195b;
+    font-weight: bold;
+}
+#standings{
+    /*width: 100%;   */
+    margin-right: 50px;
+    margin-left: 50px; 
+}
