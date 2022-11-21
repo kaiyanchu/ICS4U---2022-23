@@ -5,9 +5,14 @@
 .title {
     color: #3d195b;
     font-weight: bold;
+    margin-left: 50px;
 }
 #standings{
     /*width: 100%;   */
     margin-right: 50px;
     margin-left: 50px; 
+}
+.team-logo{
+    height: 20px;
+
 }

@@ -26,7 +26,8 @@ function addGame(){
 
    if(homeTeam === awayTeam){
        showMessage('Please enter different home and away Teams.');
-   } if(homeTeam === '' || awayTeam === '' || homeScore === '' || awayScore === '' || date === ''){
+
+   } else if(homeTeam === '' || awayTeam === '' || homeScore === '' || awayScore === '' || date === ''){
      showMessage('Please enter all the information correctly.');
    }
    else{
@@ -57,7 +58,7 @@ function addGame(){
 
        localStorage.setItem('teams', JSON.stringify(teamData));
        localStorage.setItem('games', JSON.stringify(games));
-       
+       showMessage('Game added successfully!');
    }
 
 

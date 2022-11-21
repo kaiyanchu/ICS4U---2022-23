@@ -52,37 +52,50 @@
     <div class="message-container"></div>
 
 
-    <div class="columns">
+      <div class="columns">
         <div class="column">
-            <p>Home team</p>
-            <div class="select">
-                <select id="homeTeam">
-                    <option value="0">AFC Bournemouth</option>
-                    <option value="1">Arsenal</option>
-                    <option value="2">Aston Villa</option>
-                    <option value="3">Brentford</option>
-                    <option value="4">Brighton and Hove Albion</option>
-                    <option value="5">Chelsea</option>
-                    <option value="6">Crystal Palace</option>
-                    <option value="7">Everton</option>
-                    <option value="8">Fulham</option>
-                    <option value="9">Leeds United</option>
-                    <option value="10">Leicester City</option>
-                    <option value="11">Liverpool</option>
-                    <option value="12">Manchester City</option>
-                    <option value="13">Manchester United</option>
-                    <option value="14">Newcastle United</option>
-                    <option value="15">Nottingham Forest</option>
-                    <option value="16">Southampton</option>
-                    <option value="17">Tottenham Hotspur</option>
-                    <option value="18">West Ham United</option>
-                    <option value="19">Wolverhampton Wanderers</option>
-                </select>
-                <input class="input" type="number" id="homeScore"placeholder="Home Score">
-              </div>
+
+      <form class="box">
+        <p>Home team</p>
+        <div class="select">
+            <select id="homeTeam">
+                <option value="0">AFC Bournemouth</option>
+                <option value="1">Arsenal</option>
+                <option value="2">Aston Villa</option>
+                <option value="3">Brentford</option>
+                <option value="4">Brighton and Hove Albion</option>
+                <option value="5">Chelsea</option>
+                <option value="6">Crystal Palace</option>
+                <option value="7">Everton</option>
+                <option value="8">Fulham</option>
+                <option value="9">Leeds United</option>
+                <option value="10">Leicester City</option>
+                <option value="11">Liverpool</option>
+                <option value="12">Manchester City</option>
+                <option value="13">Manchester United</option>
+                <option value="14">Newcastle United</option>
+                <option value="15">Nottingham Forest</option>
+                <option value="16">Southampton</option>
+                <option value="17">Tottenham Hotspur</option>
+                <option value="18">West Ham United</option>
+                <option value="19">Wolverhampton Wanderers</option>
+            </select>
+          </div>
+        <div class="field">
+          <label class="label">Score</label>
+          <div class="control">
+            <input class="input" type="number" id="homeScore"placeholder="Home Score" min="0">
+          </div>
         </div>
+      </form>
+      </div>
+
         <div class="column">
-            <p>Away Team</p>
+
+
+
+          <form class="box">
+            <p>Away team</p>
             <div class="select">
                 <select id="awayTeam">
                     <option value="0">AFC Bournemouth</option>
@@ -106,18 +119,34 @@
                     <option value="18">West Ham United</option>
                     <option value="19">Wolverhampton Wanderers</option>
                 </select>
-                <input class="input" type="number" id="awayScore" placeholder="Away Score">
-                <button class="button" onclick="addGame()">Add Game</button>
               </div>
+            <div class="field">
+              <label class="label">Score</label>
+              <div class="control">
+                <input class="input" type="number" id="awayScore"placeholder="Away Score" min="0">
+              </div>
+            </div>
+          </form>
         </div>
 
-        <div class="column">
-            <p>Date</p>
-            <input type="date" id="date">
-
+        <div class="column is-one-quarter">
+          <form class="box">
+                <p>Date</p>
+                <input type="date" id="date">
+          </form>
         </div>
+      </div>
+
+      <div class="columns">
 
       </div>
+
+
+        <button onclick="addGame()" class="button">Add Game</button>
+
+
+
+
 </body>
 
 <script src="../scripts/admin.js"></script>

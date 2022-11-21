@@ -9,6 +9,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = []; 
+        team['img'] = "../images/AFC Bournemouth.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Arsenal';
@@ -17,6 +18,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Arsenal.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Aston Villa';
@@ -25,6 +27,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Aston Villa.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Brentford';
@@ -33,6 +36,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Brentford.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Brighton & Hove Albion';
@@ -41,6 +45,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Brighton.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Chelsea';
@@ -49,6 +54,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Chelsea.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Crystal Palace';
@@ -57,6 +63,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Crystal Palace.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Everton';
@@ -65,6 +72,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Everton.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Fulham';
@@ -73,6 +81,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Fulham.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Leeds';
@@ -81,6 +90,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Leeds.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Leicester';
@@ -89,6 +99,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Leicester.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Liverpool';
@@ -97,6 +108,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Liverpool.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Manchester City';
@@ -105,6 +117,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Manchester City.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Manchester United';
@@ -113,6 +126,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Manchester United.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Newcastle United';
@@ -121,6 +135,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Newcastle.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Nottingham Forest';
@@ -129,6 +144,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Nottingham.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Southampton';
@@ -137,6 +153,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Southampton.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Tottenham Hotspur';
@@ -145,6 +162,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Tottenham Hotspur.png"
         teams.push(team);
     team = {};
         team['Name'] = 'West Ham United';
@@ -153,6 +171,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/West Ham.png"
         teams.push(team);
     team = {};
         team['Name'] = 'Wolverhampton Wanderers';
@@ -161,6 +180,7 @@ if(localStorage.getItem('teams') == null ){
         team['L'] = 0;
         team['D'] = 0;
         team['games'] = [];
+        team['img'] = "../images/Wolverhampton Wanderers.png"
         teams.push(team);
     console.log(teams);
     localStorage.setItem('teams', JSON.stringify(teams));
@@ -180,7 +200,12 @@ createTable(teams);
      teams.forEach((team) => {
          const row = document.createElement('tr');
          let td = document.createElement('td');
-         td.textContent = team.Name;
+         const img = document.createElement("img");
+         teamName = team.Name;
+         img.src = team.img;
+         img.classList.add('team-logo')
+         td.textContent = team.Name + " ";
+         td.appendChild(img);
          row.appendChild(td);
 
         td = document.createElement('td');

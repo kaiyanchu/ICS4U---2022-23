@@ -1,0 +1,26 @@
+@import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
+*{
+    font-family: "Radikal"; 
+}
+.title {
+    color: #3d195b;
+    font-weight: bold;
+}
+.box{
+    height: 100%;
+}
+.select, select{
+    width: 100%;
+}
+
+.message-container p {
+    color: white;
+    background-color: #3d195b;
+    padding: 10px;
+    margin: 0;
+}
+
+.button{
+    background-color: #3d195b;
+    color: white;
+}
