@@ -24,3 +24,11 @@
     background-color: #3d195b;
     color: white;
 }
+
+#date{
+    margin-bottom: 2.25rem;
+}
+
+.button{
+    width:100%;
+}

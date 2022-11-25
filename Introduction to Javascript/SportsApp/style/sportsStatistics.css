@@ -13,6 +13,11 @@
     margin-left: 50px; 
 }
 .team-logo{
+    width: 20px;
     height: 20px;
-
+}
+.down{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
 }

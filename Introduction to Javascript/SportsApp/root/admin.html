@@ -123,7 +123,7 @@
             <div class="field">
               <label class="label">Score</label>
               <div class="control">
-                <input class="input" type="number" id="awayScore"placeholder="Away Score" min="0">
+                <input class="input" type="number" id="awayScore"placeholder="Away Score" min="">
               </div>
             </div>
           </form>
@@ -132,7 +132,9 @@
         <div class="column is-one-quarter">
           <form class="box">
                 <p>Date</p>
-                <input type="date" id="date">
+                <input type="date" class="input" id="date">
+
+                <div><button onclick="addGame()" class="button">Add Game</button></div>
           </form>
         </div>
       </div>
@@ -142,7 +144,7 @@
       </div>
 
 
-        <button onclick="addGame()" class="button">Add Game</button>
+
 
 
 

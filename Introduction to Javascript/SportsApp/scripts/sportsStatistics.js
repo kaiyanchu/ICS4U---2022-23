@@ -201,11 +201,13 @@ createTable(teams);
          const row = document.createElement('tr');
          let td = document.createElement('td');
          const img = document.createElement("img");
-         teamName = team.Name;
+         img.classList.add('down');
+         let teamName = document.createElement("span");
+         teamName.textContent = team.Name;
          img.src = team.img;
          img.classList.add('team-logo')
-         td.textContent = team.Name + " ";
          td.appendChild(img);
+         td.appendChild(teamName);
          row.appendChild(td);
 
         td = document.createElement('td');
