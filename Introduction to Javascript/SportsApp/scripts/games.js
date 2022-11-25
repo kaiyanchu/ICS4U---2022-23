@@ -113,10 +113,7 @@ function makeGames(){
 }
 
 
-function changePage(num){
-    currentPage = num;
-    makeGames();
-}
+
 
     let pagination = document.createElement('ul');
         pagination.classList.add('pagination-list');
@@ -124,6 +121,12 @@ function changePage(num){
     let pages = [];
     paginationArea.appendChild(pagination);
 
+    function changePage(num){
+        pages[currentPage-1].classList.remove("is-current");
+        currentPage = num;
+        makeGames();
+        pages[num-1].classList.add("is-current");
+    }
 
     const backPage = document.createElement('li');
     pagination.appendChild(backPage);
@@ -132,7 +135,7 @@ function changePage(num){
     backPage.addEventListener('click', () => { 
         console.log('boop');
         if(currentPage !== 1)
-            currentPage--;
+            changePage(currentPage - 1);
         makeGames();
     });
 
@@ -145,6 +148,7 @@ function changePage(num){
             pages.push(page);
             pagination.appendChild(page);
         }
+        pages[currentPage-1].classList.add("is-current");
 
     const forwardPage = document.createElement('li');
     pagination.appendChild(forwardPage);
@@ -153,7 +157,7 @@ function changePage(num){
     forwardPage.addEventListener('click', () => { 
         console.log('boop');
         if(currentPage !== numPages)
-            currentPage++;
+            changePage(currentPage + 1);
         makeGames();
     });
         
