@@ -5,21 +5,206 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
    <title>Document</title>
+   <style>
+      @import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
+*{
+    font-family: "Radikal"; 
+}
+
+img{
+    height: 50px;
+}
+
+.hidden{
+    display: none;
+}
+
+.button{
+    background-color: #3d195b;
+    color: white;
+    width:100%;
+
+}
+   </style>
 </head>
 
 <body onload="start();">
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="../images/Premier League logo.png">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="sportsStatistics.html" class="navbar-item">
+              League Standings
+            </a>
+      
+            <a href="admin.html" class="navbar-item">
+              Add Games
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="games.html" class="navbar-item">
+                    Games
+                </a>
+            </div>
+        </div>
+      </nav>
+
+      <p class="title" id="title"></p>
    <div id="test"></div>
+   <div></div>
+   <section></section>
+   <div id="paginationArea"></div>
+
+
+   
 </body>
 <script>
    function start() {
       const dataString = localStorage.getItem('teams');
       const teams = JSON.parse(dataString);
       let params = (new URL(document.location)).searchParams;
+      console.log(teams)
+      const team = teams.filter(team => team.id == params.get('id'));
 
-      const team = teams.filter(team => team.Id == params.get('id'));
+      console.log(team[0].Name);
+      let title = document.getElementById("title");
+      title.textContent = `${team[0].Name}  \'s Games`
 
-      document.querySelector('#test').textContent = team[0].Name;
+
+     // document.querySelector('#test').textContent = team[0].Name;
+
+
+
+     let section = document.querySelector('section');
+      let paginationArea = document.getElementById('paginationArea');
+      const games = team[0].games;
+      let mostOuterColumns;
+      let count = 0;
+      let currentPage = 1;
+      let pageCount = 0;
+      let pageNumber = 1;
+      makeGames();
+
+
+
+
+      function newColumns(){
+        if(count%4 === 0){
+             mostOuterColumns = document.createElement('div');
+             mostOuterColumns.classList.add('columns');
+        }
+
+        if(pageCount%12 === 0 && pageCount !==0){
+             pageNumber++;
+        }
+        return;
+        
+  
+    }
+
+   function makeGames(){
+     pageNumber = 1;
+     pageCount = 0;
+     count = 0;
+
+       
+     
+     section.replaceChildren();    
+
+    games.forEach((game) => {
+        newColumns();
+        let homeTeamId = game.homeTeam;
+        let awayTeamId = game.awayTeam;
+        let homeScore = game.homeScore;
+        let awayScore = game.awayScore;
+        console.log(game.date);
+        let date = new Date(game.date).toLocaleDateString();
+        
+        let homeTeamName = teams[homeTeamId].Name;
+        let awayTeamName = teams[awayTeamId].Name;
+        let homeTeamScore = game.homeScore;
+        let awayTeamScore = game.awayScore;
+        
+        let homeTeamImg = document.createElement('img');
+        homeTeamImg.src = teams[homeTeamId].img;
+        let awayTeamImg = document.createElement('img');
+        awayTeamImg.src = teams[awayTeamId].img;
+
+        let outerColumn = document.createElement('div');
+        outerColumn.setAttribute("class", "column is-one-quarter hidden")
+        //outerColumn.classList.add({pageNumber});
+        let card = document.createElement('div');
+        card.classList.add("card");
+        let content = document.createElement('div');
+        content.classList.add('card-content');
+        let datePrint = document.createElement('p');
+        datePrint.setAttribute("class", 'is-flex is-justify-content-center');
+        let column = document.createElement('div');
+        column.classList.add("columns")
+        let column1 = document.createElement('div');
+        column1.setAttribute("class", "column is-flex is-flex-direction-column is-align-items-center");
+        let column2 = document.createElement('div');
+        column2.setAttribute("class", "column is-flex is-flex-direction-column is-align-items-center");
+
+ 
+
+        if(currentPage === pageNumber){
+            outerColumn.classList.remove("hidden");
+        }
+
+
+        let hName = document.createElement('p');
+        hName.textContent = homeTeamName;
+        let aName = document.createElement('p');
+        aName.textContent = awayTeamName;
+        let hScore = document.createElement('p');
+        hScore.textContent = homeTeamScore;
+        let aScore = document.createElement('p');
+        aScore.textContent = awayTeamScore;
+
+        datePrint.textContent = date;
+
+        section.append(mostOuterColumns);
+        mostOuterColumns.appendChild(outerColumn);
+        outerColumn.appendChild(card);
+        card.appendChild(content);
+        content.appendChild(datePrint);
+        content.appendChild(column);
+        column.appendChild(column1);
+        column.appendChild(column2);
+        column1.appendChild(homeTeamImg);
+        column1.appendChild(hName);
+        column1.appendChild(hScore);
+
+        column2.appendChild(awayTeamImg);
+        column2.appendChild(aName);
+        column2.appendChild(aScore);
+        count++;
+        pageCount++;
+
+        console.log(homeTeamId + awayTeamId + homeScore + awayScore + date + homeTeamName + awayTeamName);
+    
+})
+}
+      
+
 
    }
 </script>

@@ -23,12 +23,11 @@
 .button{
     background-color: #3d195b;
     color: white;
+    width:100%;
+
 }
 
 #date{
     margin-bottom: 2.25rem;
 }
 
-.button{
-    width:100%;
-}

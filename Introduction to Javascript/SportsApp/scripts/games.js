@@ -158,3 +158,10 @@ function changePage(num){
     });
         
 
+   function filterDates(){
+       // let
+        let filteredDates = [];
+        games.forEach((game) => {
+
+        });
+    }

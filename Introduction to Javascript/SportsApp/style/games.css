@@ -10,3 +10,10 @@ img{
 .hidden{
     display: none;
 }
+
+.button{
+    background-color: #3d195b;
+    color: white;
+    width:100%;
+
+}

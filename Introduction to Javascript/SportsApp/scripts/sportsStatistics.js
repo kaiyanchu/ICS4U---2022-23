@@ -203,11 +203,14 @@ createTable(teams);
          const img = document.createElement("img");
          img.classList.add('down');
          let teamName = document.createElement("span");
-         teamName.textContent = team.Name;
+         const link = document.createElement('a');
+         link.href = "../root/teams.html?id=" + team.id;
+         link.textContent = team.Name;
+         //teamName.textContent = team.Name;
          img.src = team.img;
          img.classList.add('team-logo')
          td.appendChild(img);
-         td.appendChild(teamName);
+         td.appendChild(link);
          row.appendChild(td);
 
         td = document.createElement('td');
