@@ -22,6 +22,10 @@ p{
     align-content: end;
 }
 
+/* #paginationArea{
+    display: flex;
+    justify-content: flex-end;
+} */
 
 @media (min-width: 769px){
 

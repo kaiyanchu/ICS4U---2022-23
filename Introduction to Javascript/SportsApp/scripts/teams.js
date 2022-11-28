@@ -17,6 +17,8 @@
      let section = document.querySelector('section');
       let paginationArea = document.getElementById('paginationArea');
       let games = team[0].games;
+      //makes the games go in order of date
+     games = games.sort((gameA, gameB) => gameA.date > gameB.date ? -1 : 1);
       let mostOuterColumns;
       let count = 0;
       let currentPage = 1;
@@ -127,6 +129,7 @@ function makePages(gamesDisplayed){
     paginationArea.replaceChildren();
     let pagination = document.createElement('ul');
         pagination.classList.add('pagination-list');
+        pagination.classList.add('is-justify-content-center')
     let numPages = Math.ceil(gamesDisplayed.length/12);
     let pages = [];
     paginationArea.appendChild(pagination);

@@ -1,6 +1,8 @@
 let games = [];
 games = JSON.parse(localStorage.getItem(['games']));
 const teams = JSON.parse(localStorage.getItem(['teams']));
+//makes the games go in order of date
+games = games.sort((gameA, gameB) => gameA.date > gameB.date ? -1 : 1);
 let section = document.querySelector('section');
 let paginationArea = document.getElementById('paginationArea');
 let mostOuterColumns;
@@ -117,6 +119,7 @@ function makePages(gamesDisplayed){
     paginationArea.replaceChildren();
     let pagination = document.createElement('ul');
         pagination.classList.add('pagination-list');
+        pagination.classList.add('is-justify-content-center')
     let numPages = Math.ceil(gamesDisplayed.length/12);
     let pages = [];
     paginationArea.appendChild(pagination);

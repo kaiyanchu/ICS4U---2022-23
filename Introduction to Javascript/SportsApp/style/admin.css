@@ -2,10 +2,15 @@
 *{
     font-family: "Radikal"; 
 }
+
 .title {
     color: #3d195b;
     font-weight: bold;
+    margin-left: 50px;
+    text-align: center;
+
 }
+
 .box{
     height: 100%;
 }
