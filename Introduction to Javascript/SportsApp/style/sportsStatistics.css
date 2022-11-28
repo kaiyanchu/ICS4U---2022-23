@@ -7,10 +7,16 @@
     font-weight: bold;
     margin-left: 50px;
 }
+.tableSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #standings{
-    /*width: 100%;   */
-    margin-right: 50px;
-    margin-left: 50px; 
+    width: 90%; 
+    /* margin-right: 50px;
+    margin-left: 50px;  */
+    margin-bottom: 50px;
 }
 .team-logo{
     width: 20px;
@@ -21,3 +27,14 @@
     vertical-align: middle;
     margin-right: 5px;
 }
+
+a{
+    color: black;
+}
+
+p{
+    text-align: center;
+    align-content: end;
+}
+
+

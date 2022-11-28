@@ -9,41 +9,40 @@ let currentPage = 1;
 let pageCount = 0;
 let pageNumber = 1;
 
-makeGames();
+makeGames(games);
 
 console.log(games);
 
-    function newColumns(){
-        if(count%4 === 0){
-             mostOuterColumns = document.createElement('div');
-             mostOuterColumns.classList.add('columns');
-        }
-
-        if(pageCount%12 === 0 && pageCount !==0){
-             pageNumber++;
-        }
-        return;
-        
-  
+function newColumns(){
+    if(count%4 === 0){
+        mostOuterColumns = document.createElement('div');
+        mostOuterColumns.classList.add('columns');
     }
 
-function makeGames(){
+    if(pageCount%12 === 0 && pageCount !==0){
+        pageNumber++;
+    }
+    return;
+}
+
+function makeGames(gamesDisplayed){
      pageNumber = 1;
      pageCount = 0;
      count = 0;
 
        
      
-     section.replaceChildren();    
+    section.replaceChildren();    
 
-    games.forEach((game) => {
+    gamesDisplayed.forEach((game) => {
         newColumns();
         let homeTeamId = game.homeTeam;
         let awayTeamId = game.awayTeam;
         let homeScore = game.homeScore;
         let awayScore = game.awayScore;
         console.log(game.date);
-        let date = new Date(game.date).toLocaleDateString();
+        let date = game.date;
+       // let date = new Date(game.date).toLocaleDateString();
         
         let homeTeamName = teams[homeTeamId].Name;
         let awayTeamName = teams[awayTeamId].Name;
@@ -108,24 +107,25 @@ function makeGames(){
         pageCount++;
 
         console.log(homeTeamId + awayTeamId + homeScore + awayScore + date + homeTeamName + awayTeamName);
-    
 })
+    makePages(gamesDisplayed);
 }
 
 
 
-
+function makePages(gamesDisplayed){
+    paginationArea.replaceChildren();
     let pagination = document.createElement('ul');
         pagination.classList.add('pagination-list');
-    let numPages = Math.ceil(games.length/12);
+    let numPages = Math.ceil(gamesDisplayed.length/12);
     let pages = [];
     paginationArea.appendChild(pagination);
 
     function changePage(num){
-        pages[currentPage-1].classList.remove("is-current");
-        currentPage = num;
-        makeGames();
-        pages[num-1].classList.add("is-current");
+            pages[currentPage-1].classList.remove("is-current");
+            currentPage = num;
+            makeGames(gamesDisplayed);
+            pages[num-1].classList.add("is-current"); 
     }
 
     const backPage = document.createElement('li');
@@ -136,7 +136,7 @@ function makeGames(){
         console.log('boop');
         if(currentPage !== 1)
             changePage(currentPage - 1);
-        makeGames();
+        makeGames(gamesDisplayed);
     });
 
         for (let index = 1; index <= numPages; index++) {
@@ -158,14 +158,48 @@ function makeGames(){
         console.log('boop');
         if(currentPage !== numPages)
             changePage(currentPage + 1);
-        makeGames();
+        makeGames(gamesDisplayed);
     });
+}
         
 
    function filterDates(){
-       // let
-        let filteredDates = [];
-        games.forEach((game) => {
+        let dates = document.querySelectorAll('input');
+        dateStart = dates[0].value;
+        dateEnd = dates[1].value;
+        if(dateStart === '' || dateEnd=== ''){
+            showMessage('Please enter valid date.')
+        }else{
+            let filteredDates = [];
+            games.forEach((game) => {
+                if(game.date>= dateStart && game.date <= dateEnd){
+                    filteredDates.push(game);
+                }
+            });
+            //games = filteredDates;
 
-        });
+            currentPage=1;
+            makeGames(filteredDates);
+            
+       }
     }
+
+
+    const showMessage = (message)=>{
+        const messageElement = document.createElement('p');
+        messageElement.textContent = message;
+        messageDisplay.append(messageElement);
+        setTimeout(()=> messageDisplay.removeChild(messageElement), 2000);
+        }
+
+
+        const openBurger = () => {
+            let icon = document.getElementById('burgerButton');
+            //let dropMenu = document.getElementById('teamList');
+            icon.classList.toggle('is-active');
+           // dropMenu.classList.toggle('is-active');
+           let normalNav = document.getElementById('navbarBasicExample');
+           normalNav.classList.toggle('is-active');
+          };
+    
+    

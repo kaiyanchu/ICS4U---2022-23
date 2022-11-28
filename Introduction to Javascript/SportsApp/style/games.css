@@ -17,3 +17,39 @@ img{
     width:100%;
 
 }
+p{
+    text-align: center;
+    align-content: end;
+}
+
+
+@media (min-width: 769px){
+
+section{
+    height: 75vh;
+}
+
+.card{
+    height: 100%;
+}
+}
+/* section{
+    height: 70vh;
+} */
+
+@media (max-width: 1150px) {
+    img{
+        height: 40px;
+    }
+    p{
+        font-size: xx-small;
+    }
+}
+@media (max-width: 769px){
+    p{
+        font-size: 1rem;
+    }
+    img{
+        height: 50px;
+    }
+}

@@ -71,3 +71,13 @@ messageElement.textContent = message;
 messageDisplay.append(messageElement);
 setTimeout(()=> messageDisplay.removeChild(messageElement), 2000);
 }
+
+const openBurger = () => {
+  let icon = document.getElementById('burgerButton');
+  //let dropMenu = document.getElementById('teamList');
+  icon.classList.toggle('is-active');
+ // dropMenu.classList.toggle('is-active');
+ let normalNav = document.getElementById('navbarBasicExample');
+ normalNav.classList.toggle('is-active');
+};
+

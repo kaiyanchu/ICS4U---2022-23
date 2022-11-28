@@ -13,11 +13,11 @@
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
+          <a class="navbar-item" href="https://bulma.io" id="">
             <img src="../images/Premier League logo.png">
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onclick="openBurger()" id="burgerButton">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -33,14 +33,10 @@
             <a href="#" class="navbar-item">
               Add Games
             </a>
-        </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a href="games.html" class="navbar-item">
-                    Games
-                </a>
-            </div>
+            <a href="games.html" class="navbar-item">
+              Games
+            </a>
         </div>
       </nav>
 
