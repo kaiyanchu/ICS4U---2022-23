@@ -11,6 +11,8 @@ const team = teams.filter(team => team.id == params.get('id'));
 
 console.log(team[0].Name);
 //creates name dynamically
+let webTitle = document.querySelector('title');
+webTitle.textContent = `${team[0].Name}  \'s Games` 
 let title = document.getElementById("title");
 title.textContent = `${team[0].Name}  \'s Games`
 
