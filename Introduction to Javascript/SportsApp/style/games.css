@@ -1,59 +1,71 @@
 @import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
-*{
-    font-family: "Radikal"; 
+
+* {
+    font-family: "Radikal";
 }
 
-img{
+img {
     height: 50px;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.button{
+.button {
     background-color: #3d195b;
     color: white;
-    width:100%;
+    width: 100%;
 
 }
-p{
+
+.title {
+    color: #3d195b;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+p {
     text-align: center;
     align-content: end;
 }
 
-/* #paginationArea{
-    display: flex;
-    justify-content: flex-end;
-} */
-
-@media (min-width: 769px){
-
-section{
-    height: 75vh;
+.message-container p {
+    color: white;
+    background-color: #3d195b;
+    padding: 10px;
+    margin: 0;
 }
 
-.card{
-    height: 100%;
+
+@media (min-width: 769px) {
+
+    section {
+        height: 75vh;
+    }
+
+    .card {
+        height: 100%;
+    }
 }
-}
-/* section{
-    height: 70vh;
-} */
 
 @media (max-width: 1150px) {
-    img{
+    img {
         height: 40px;
     }
-    p{
+
+    p {
         font-size: xx-small;
     }
 }
-@media (max-width: 769px){
-    p{
+
+@media (max-width: 769px) {
+    p {
         font-size: 1rem;
     }
-    img{
+
+    img {
         height: 50px;
     }
 }

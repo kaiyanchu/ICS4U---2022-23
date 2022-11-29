@@ -1,40 +1,43 @@
 @import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
-*{
-    font-family: "Radikal"; 
+
+* {
+    font-family: "Radikal";
 }
+
 .title {
     color: #3d195b;
     font-weight: bold;
-    margin-left: 50px;
 }
-.tableSection{
+
+.tableSection {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#standings{
-    width: 90%; 
+
+#standings {
+    width: 90%;
     /* margin-right: 50px;
     margin-left: 50px;  */
     margin-bottom: 50px;
 }
-.team-logo{
+
+.team-logo {
     width: 20px;
     height: 20px;
 }
-.down{
+
+.down {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
 }
 
-a{
+a {
     color: black;
 }
 
-p{
+p {
     text-align: center;
     align-content: end;
 }
-
-

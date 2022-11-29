@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
-    <link rel="stylesheet" href="../style/sportsStatistics.css">
-    <title>Document</title>
-</head>
-<body>
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+  <link rel="stylesheet" href="../style/sportsStatistics.css">
+  <title>Document</title>
+</head>
+
+<!--Makes it sort by points as the default-->
+<body onload="sort('PTS')">
+
+  <!--Bulma Navbar-->
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io" id="">
+      <a class="navbar-item" href="#" id="">
         <img src="../images/Premier League logo.png">
       </a>
-  
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onclick="openBurger()" id="burgerButton">
+
+      <!--Bulma Navar Burger - Calls a js function to open and close the burger-->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+        onclick="openBurger()" id="burgerButton">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-  
+
+    <!--Basic bulma navbar categories-->
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <a href="sportsStatistics.html" class="navbar-item">
           League Standings
         </a>
-  
+
         <a href="admin.html" class="navbar-item">
           Add Games
         </a>
@@ -37,29 +44,30 @@
         <a href="games.html" class="navbar-item">
           Games
         </a>
-    </div>
+      </div>
   </nav>
 
+  <!--Title-->
+  <p class="title">
+    Premier League Standings
+  </p>
 
-          <p class="title">
-            Premier League Standings
-          </p>
-
-        </div>
-      </section>
-    <div class="tableSection">  
-        <table class="table is-bordered is-hoverable" id="standings">
-            <thead>
-                <tr>
-                    <th onclick ="sort('Name')">Name</th>
-                    <th onclick = "sort('Wins')">Wins</th>
-                    <th onclick ="sort('Losses')">Losses</th>
-                    <th onclick="sort('D')">Draws</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
+  <!--Creates table headings, table data is created in js-->
+  <section class="tableSection">
+    <table class="table is-bordered is-hoverable" id="standings">
+      <thead>
+        <tr>
+          <th onclick="sort('Name')">Name</th>
+          <th onclick="sort('Wins')">Wins</th>
+          <th onclick="sort('Losses')">Losses</th>
+          <th onclick="sort('D')">Draws</th>
+          <th onclick="sort('PTS')">PTS</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
 </body>
 <script src="../scripts/sportsStatistics.js"></script>
+
 </html>

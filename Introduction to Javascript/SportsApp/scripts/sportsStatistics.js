@@ -1,6 +1,8 @@
 let teams = [];
 let games = [];
-if(localStorage.getItem('games') == null){
+//sets the localStorage to default if there is not already something set there
+//basically if this has never been opened before
+if (localStorage.getItem('games') == null) {
     games = [
         {
             'homeTeam': 6,
@@ -31,7 +33,7 @@ if(localStorage.getItem('games') == null){
             'date': "2022-08-06"
         },
         {
-            'homeTeam': 12,
+            'homeTeam': 17,
             'awayTeam': 16,
             'homeScore': 4,
             'awayScore': 1,
@@ -101,7 +103,7 @@ if(localStorage.getItem('games') == null){
             'date': "2022-08-13"
         },
         {
-            'homeTeam':12,
+            'homeTeam': 12,
             'awayTeam': 0,
             'homeScore': 4,
             'awayScore': 0,
@@ -277,7 +279,7 @@ if(localStorage.getItem('games') == null){
         },
         {
             'homeTeam': 15,
-            'awayTeam': 12,
+            'awayTeam': 17,
             'homeScore': 0,
             'awayScore': 2,
             'date': "2022-08-28"
@@ -333,7 +335,7 @@ if(localStorage.getItem('games') == null){
         },
         {
             'homeTeam': 18,
-            'awayTeam': 12,
+            'awayTeam': 17,
             'homeScore': 1,
             'awayScore': 1,
             'date': "2022-08-31"
@@ -360,7 +362,7 @@ if(localStorage.getItem('games') == null){
             'date': "2022-09-03"
         },
         {
-            'homeTeam': 12,
+            'homeTeam': 17,
             'awayTeam': 8,
             'homeScore': 2,
             'awayScore': 1,
@@ -406,7 +408,7 @@ if(localStorage.getItem('games') == null){
             'awayTeam': 12,
             'homeScore': 1,
             'awayScore': 1,
-            'date': "2022-09-04"
+            'date': "2022-09-03"
         },
         {
             'homeTeam': 2,
@@ -437,7 +439,7 @@ if(localStorage.getItem('games') == null){
             'date': "2022-09-17"
         },
         {
-            'homeTeam': 12,
+            'homeTeam': 17,
             'awayTeam': 10,
             'homeScore': 6,
             'awayScore': 2,
@@ -589,7 +591,7 @@ if(localStorage.getItem('games') == null){
             'homeScore': 1,
             'awayScore': 2,
             'date': "2022-10-09"
-        },        {
+        }, {
             'homeTeam': 15,
             'awayTeam': 2,
             'homeScore': 1,
@@ -625,7 +627,7 @@ if(localStorage.getItem('games') == null){
             'date': "2022-10-15"
         },
         {
-            'homeTeam': 12,
+            'homeTeam': 17,
             'awayTeam': 7,
             'homeScore': 2,
             'awayScore': 0,
@@ -802,8 +804,8 @@ if(localStorage.getItem('games') == null){
         {
             'homeTeam': 10,
             'awayTeam': 12,
-            'homeScore': 1,
-            'awayScore': 0,
+            'homeScore': 0,
+            'awayScore': 1,
             'date': "2022-10-29"
         },
         {
@@ -1010,668 +1012,710 @@ if(localStorage.getItem('games') == null){
             'date': "2022-11-13"
         },
 
-        
+
 
     ];
     localStorage.setItem('games', JSON.stringify(games));
-}else{
+    //otherwise it will just grab the games from the local storage
+} else {
     games = JSON.parse(localStorage.getItem('games'));
 }
 
-
-
-
-if(localStorage.getItem('teams') == null ){
+//same process as games
+if (localStorage.getItem('teams') == null) {
     let teamData;
     let team = {};
-        team['Name'] = 'AFC Bournemouth';
-        team['id'] = 0;
-        let teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        let wins = 0;
-        let losses = 0;
-        let draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'AFC Bournemouth';
+    team['id'] = 0;
+    let teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    let wins = 0;
+    let losses = 0;
+    let draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/AFC Bournemouth.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Arsenal';
-        team['id'] = 1;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Arsenal.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/AFC Bournemouth.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Aston Villa';
-        team['id'] = 2;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Arsenal';
+    team['id'] = 1;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Aston Villa.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Brentford';
-        team['id'] = 3;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Brentford.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Arsenal.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Brighton & Hove Albion';
-        team['id'] = 4;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Aston Villa';
+    team['id'] = 2;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Brighton.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Chelsea';
-        team['id'] = 5;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Chelsea.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Aston Villa.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Crystal Palace';
-        team['id'] = 6;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Brentford';
+    team['id'] = 3;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Crystal Palace.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Everton';
-        team['id'] = 7;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Everton.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Brentford.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Fulham';
-        team['id'] = 8;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Brighton & Hove Albion';
+    team['id'] = 4;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Fulham.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Leeds';
-        team['id'] = 9;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Leeds.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Brighton.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Leicester';
-        team['id'] = 10;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Chelsea';
+    team['id'] = 5;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Leicester.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Liverpool';
-        team['id'] = 11;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Liverpool.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Chelsea.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Manchester City';
-        team['id'] = 12;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Crystal Palace';
+    team['id'] = 6;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Manchester City.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Manchester United';
-        team['id'] = 13;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Manchester United.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Crystal Palace.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Newcastle United';
-        team['id'] = 14;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Everton';
+    team['id'] = 7;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Newcastle.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Nottingham Forest';
-        team['id'] = 15;
-        team['W'] = 0;
-        team['L'] = 0;
-        team['D'] = 0;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        team['img'] = "../images/Nottingham.png"
-        teams.push(team);
-    team = {};
-        team['Name'] = 'Southampton';
-        team['id'] = 16;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Southampton.png"
-        teams.push(team);
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Everton.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Tottenham Hotspur';
-        team['id'] = 17;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Fulham';
+    team['id'] = 8;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Tottenham Hotspur.png"
-        teams.push(team);
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Fulham.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'West Ham United';
-        team['id'] = 18;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Leeds';
+    team['id'] = 9;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/West Ham.png"
-        teams.push(team);
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Leeds.png"
+    teams.push(team);
     team = {};
-        team['Name'] = 'Wolverhampton Wanderers';
-        team['id'] = 19;
-        teamGame  = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
-        team['games'] = teamGame; 
-        wins = 0;
-        losses = 0;
-        draws = 0;
-        teamGame.forEach((game) => {
-            if(game.homeTeam === team.id){
-                if(game.homeScore > game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore < game.awayTeam){
-                    losses++;
-                }
-            }else{
-                if(game.homeScore < game.awayScore){
-                    wins++;
-                } else if(game.homeScore === game.awayScore){
-                    draws++;
-                } else if(game.homeScore > game.awayTeam){
-                    losses++;
-                } 
+    team['Name'] = 'Leicester';
+    team['id'] = 10;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
             }
-        });
-        team['W'] = wins;
-        team['L'] = losses;
-        team['D'] = draws;
-        team['img'] = "../images/Wolverhampton Wanderers.png"
-        teams.push(team);
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Leicester.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Liverpool';
+    team['id'] = 11;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayTeam) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Liverpool.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Manchester City';
+    team['id'] = 12;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Manchester City.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Manchester United';
+    team['id'] = 13;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Manchester United.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Newcastle United';
+    team['id'] = 14;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Newcastle.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Nottingham Forest';
+    team['id'] = 15;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Nottingham.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Southampton';
+    team['id'] = 16;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Southampton.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Tottenham Hotspur';
+    team['id'] = 17;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Tottenham Hotspur.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'West Ham United';
+    team['id'] = 18;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/West Ham.png"
+    teams.push(team);
+    team = {};
+    team['Name'] = 'Wolverhampton Wanderers';
+    team['id'] = 19;
+    teamGame = games.filter((game) => (game.homeTeam === team.id || game.awayTeam === team.id));
+    team['games'] = teamGame;
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    teamGame.forEach((game) => {
+        if (game.homeTeam === team.id) {
+            if (game.homeScore > game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore < game.awayScore) {
+                losses++;
+            }
+        } else {
+            if (game.homeScore < game.awayScore) {
+                wins++;
+            } else if (game.homeScore === game.awayScore) {
+                draws++;
+            } else if (game.homeScore > game.awayScore) {
+                losses++;
+            }
+        }
+    });
+    team['PTS'] = (wins * 3) + (draws)
+    team['W'] = wins;
+    team['L'] = losses;
+    team['D'] = draws;
+    team['img'] = "../images/Wolverhampton Wanderers.png"
+    teams.push(team);
     console.log(teams);
     localStorage.setItem('teams', JSON.stringify(teams));
-}else{
+} else {
     teams = JSON.parse(localStorage['teams']);
 }
 
 
-
-
-
+//creates the table 
 createTable(teams);
+function createTable(teams) {
+    //gets the tablebody from the html
+    let tableBody = document.querySelector('#standings tbody');
+    //replaces all the old table chart with the new one that is about to be created
+    tableBody.replaceChildren();
+    teams.forEach((team) => {
+        //creates the table data for team
+        const row = document.createElement('tr');
+        let td = document.createElement('td');
+        const img = document.createElement("img");
+        img.classList.add('down');
+        let teamName = document.createElement("span");
+        const link = document.createElement('a');
+        //creates the link that will take it to the teams page
+        link.href = "../root/teams.html?id=" + team.id;
+        link.textContent = team.Name;
+        img.src = team.img;
+        img.classList.add('team-logo')
+        td.appendChild(img);
+        td.appendChild(link);
+        row.appendChild(td);
 
- function createTable(teams){
-     let tableBody = document.querySelector('#standings tbody');
-     tableBody.replaceChildren();    
-     teams.forEach((team) => {
-         const row = document.createElement('tr');
-         let td = document.createElement('td');
-         const img = document.createElement("img");
-         img.classList.add('down');
-         let teamName = document.createElement("span");
-         const link = document.createElement('a');
-         link.href = "../root/teams.html?id=" + team.id;
-         link.textContent = team.Name;
-         //teamName.textContent = team.Name;
-         img.src = team.img;
-         img.classList.add('team-logo')
-         td.appendChild(img);
-         td.appendChild(link);
-         row.appendChild(td);
-
+        //creates each table data section 
         td = document.createElement('td');
         td.textContent = team.W;
         row.appendChild(td);
@@ -1684,77 +1728,92 @@ createTable(teams);
         td.textContent = team.D;
         row.appendChild(td);
 
+        td = document.createElement('td');
+        td.textContent = team.PTS;
+        row.appendChild(td);
         tableBody.appendChild(row);
     });
 }
 
+//variables used for sorting function
 let isAtoZ;
 let isMostWins;
 let isMostLosses;
 let isMostD;
+let isMostPTS;
 
-    function sort(field){
-        if (field === 'Name'){
-            if(!isAtoZ){
-                isAtoZ = true;
-                teams = teams.sort((teamA, teamB)=>{
-                    return(teamA.Name < teamB.Name ? -1 : 1)
-                })
-            }else{
-                teams = teams.sort((teamA, teamB)=>{
-                    isAtoZ = false;
-                    return(teamA.Name > teamB.Name ? -1 : 1)
-                })
-            }
-
-
-        }else if(field ==='D'){
-            if(!isMostD){
-                isMostD = true;
-                teams = teams.sort((teamA, teamB)=>
-                    (teamB.D - teamA.D)
-                )
-            }else{
-                isMostD = false;
-                teams = teams.sort((teamA, teamB)=>
-                    (teamA.D - teamB.D)
-                )
-            }
-
-        }else if(field === 'Wins'){
-            if(!isMostWins){
-                isMostWins = true;
-                teams = teams.sort((teamA, teamB) =>
-                (teamB.W - teamA.W))
-            } else{
-                isMostWins = false;
-                teams = teams.sort((teamA, teamB) =>
-                (teamA.W - teamB.W))
-            }
-        }else if(field === 'Losses'){
-            if(!isMostLosses){
-                isMostLosses = true;
-                teams = teams.sort((teamA, teamB) =>
-                     (teamB.L - teamA.L)
-                )
-            }else{
-                isMostLosses = false;
-                teams = teams.sort((teamA, teamB) =>
-                     (teamA.L - teamB.L)
-                )
-            }
-
+/*for each field, it checks if it is already sorted using the variables created above
+checks to see if it is already sorted one way or another,
+sorts it in the opposite way that it is already sorted */
+function sort(field) {
+    if (field === 'Name') {
+        if (!isAtoZ) {
+            isAtoZ = true;
+            teams = teams.sort((teamA, teamB) => {
+                return (teamA.Name < teamB.Name ? -1 : 1)
+            })
+        } else {
+            teams = teams.sort((teamA, teamB) => {
+                isAtoZ = false;
+                return (teamA.Name > teamB.Name ? -1 : 1)
+            })
         }
-        createTable(teams);
-     }
 
+    } else if (field === 'D') {
+        if (!isMostD) {
+            isMostD = true;
+            teams = teams.sort((teamA, teamB) =>
+                (teamB.D - teamA.D)
+            )
+        } else {
+            isMostD = false;
+            teams = teams.sort((teamA, teamB) =>
+                (teamA.D - teamB.D)
+            )
+        }
+    } else if (field === 'Wins') {
+        if (!isMostWins) {
+            isMostWins = true;
+            teams = teams.sort((teamA, teamB) =>
+                (teamB.W - teamA.W))
+        } else {
+            isMostWins = false;
+            teams = teams.sort((teamA, teamB) =>
+                (teamA.W - teamB.W))
+        }
+    } else if (field === 'Losses') {
+        if (!isMostLosses) {
+            isMostLosses = true;
+            teams = teams.sort((teamA, teamB) =>
+                (teamB.L - teamA.L)
+            )
+        } else {
+            isMostLosses = false;
+            teams = teams.sort((teamA, teamB) =>
+                (teamA.L - teamB.L)
+            )
+        }
+    } else if (field === 'PTS') {
+        if (!isMostPTS) {
+            isMostPTS = true;
+            teams = teams.sort((teamA, teamB) =>
+                (teamB.PTS - teamA.PTS)
+            )
+        } else {
+            isMostPTS = false;
+            teams = teams.sort((teamA, teamB) =>
+                (teamA.PTS - teamB.PTS)
+            )
+        }
+    }
+    //creates table with new sorted array
+    createTable(teams);
+}
 
-     const openBurger = () => {
-        let icon = document.getElementById('burgerButton');
-        //let dropMenu = document.getElementById('teamList');
-        icon.classList.toggle('is-active');
-       // dropMenu.classList.toggle('is-active');
-       let normalNav = document.getElementById('navbarBasicExample');
-       normalNav.classList.toggle('is-active');
-      };
-
+//opens the burger by adding the classes is-active to elements 
+const openBurger = () => {
+    let icon = document.getElementById('burgerButton');
+    icon.classList.toggle('is-active');
+    let normalNav = document.getElementById('navbarBasicExample');
+    normalNav.classList.toggle('is-active');
+};

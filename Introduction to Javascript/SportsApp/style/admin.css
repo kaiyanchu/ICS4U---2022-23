@@ -1,20 +1,22 @@
 @import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
-*{
-    font-family: "Radikal"; 
+
+* {
+    font-family: "Radikal";
 }
 
 .title {
     color: #3d195b;
     font-weight: bold;
-    margin-left: 50px;
     text-align: center;
-
 }
 
-.box{
+.box {
     height: 100%;
 }
-.select, select{
+
+
+.select,
+select {
     width: 100%;
 }
 
@@ -23,16 +25,16 @@
     background-color: #3d195b;
     padding: 10px;
     margin: 0;
+    text-align: center;
 }
 
-.button{
+.button {
     background-color: #3d195b;
     color: white;
-    width:100%;
+    width: 100%;
 
 }
 
-#date{
+#date {
     margin-bottom: 2.25rem;
 }
-
