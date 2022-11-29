@@ -38,6 +38,11 @@ p {
     margin: 0;
 }
 
+.navbar-item img {
+    max-height: 300px;
+    width: 250px;
+}
+
 
 @media (min-width: 769px) {
 
@@ -49,6 +54,8 @@ p {
         height: 100%;
     }
 }
+
+
 
 @media (max-width: 1150px) {
     img {
