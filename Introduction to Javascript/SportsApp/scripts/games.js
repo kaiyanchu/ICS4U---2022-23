@@ -18,7 +18,6 @@ let pageNumber = 1;
 //makes the games without any date filter
 makeGames(games);
 
-console.log(games);
 
 //function decides when it is time to create a new row of columns 
 function newColumns() {
@@ -53,7 +52,6 @@ function makeGames(gamesDisplayed) {
         let awayTeamId = game.awayTeam;
         let homeScore = game.homeScore;
         let awayScore = game.awayScore;
-        console.log(game.date);
         let date = game.date;
         let homeTeamName = teams[homeTeamId].Name;
         let awayTeamName = teams[awayTeamId].Name;
@@ -111,8 +109,6 @@ function makeGames(gamesDisplayed) {
         column2.appendChild(aScore);
         count++;
         pageCount++;
-
-        console.log(homeTeamId + awayTeamId + homeScore + awayScore + date + homeTeamName + awayTeamName);
     })
     //after all the games are made, it makes the pagination
     makePages(gamesDisplayed);
@@ -146,7 +142,6 @@ function makePages(gamesDisplayed) {
     backPage.textContent = "<";
     //makes it go back a page when clicked, only if it is not already on page 1
     backPage.addEventListener('click', () => {
-        console.log('boop');
         if (currentPage !== 1)
             changePage(currentPage - 1);
         makeGames(gamesDisplayed);
@@ -171,7 +166,6 @@ function makePages(gamesDisplayed) {
     forwardPage.classList.add("pagination-link");
     forwardPage.textContent = ">";
     forwardPage.addEventListener('click', () => {
-        console.log('boop');
         if (currentPage !== numPages)
             changePage(currentPage + 1);
         makeGames(gamesDisplayed);
