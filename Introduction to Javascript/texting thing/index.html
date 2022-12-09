@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">   
+    <title>Document</title>
+    <style>
+        .hero{
+            text-align: center;
+        }
+        .thing{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .message-container p {
+            color: white;
+            background-color: #FF6961;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-link">
+        <div class="hero-body">
+          <p class="title">Send a Text!</p>
+          <p class="subtitle">(Canada and US numbers only)</p>
+        </div>
+    </section>
+
+    <div class="message-container"></div>
+
+    <div class="columns">
+        <div class="column is-one-fifth"></div>
+        <div class="column is-three-fifths">
+            <p>Phone Number</p>
+            <input class="input" type="tel" placeholder=" +1XXXXXXXXXX">
+            <p>Message</p>
+            <textarea class="textarea" placeholder="Message" rows="5"></textarea>
+            <br>
+            <div class="thing"> 
+                <button class="button is-link" onclick="text()">Send Message</button>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="text.js"></script>
+</html>
