@@ -64,7 +64,7 @@ public class IntLinkedList {
 
     public Integer remove(Integer data){
         if(head == null){
-            
+
         }
 
         if(head != null && head.getData() == data){
@@ -88,8 +88,16 @@ public class IntLinkedList {
     }
 }
 
-
-
+    public Integer removeFront(){
+        if(head==null)
+            return null;
+        else{
+            Integer temp = head.getData();
+            head = head.getLink();
+            manyItems--;
+            return temp;
+        }
+    }
     public String toString(){
         String result = "{";
         IntNode curr = head;
