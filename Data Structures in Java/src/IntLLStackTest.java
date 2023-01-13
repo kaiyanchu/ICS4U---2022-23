@@ -1,8 +1,12 @@
 public class IntLLStackTest {
     public static void main(String[] args) {
-        search();
+        testSearch();
+        testPop();
+        testPeek();
+        testPush();
+        empty();
     }
-    private static void search() {
+    private static void testSearch() {
         IntLLStack list = new IntLLStack();
         list.push(2);
         list.push(15);
@@ -11,7 +15,7 @@ public class IntLLStackTest {
         System.out.println(list);
     }
 
-    private static void pop() {
+    private static void testPop() {
         IntLLStack list = new IntLLStack();
         list.push(8);
         list.push(6);
@@ -20,7 +24,7 @@ public class IntLLStackTest {
         System.out.println(list);
     }
 
-    private static void peek() {
+    private static void testPeek() {
         IntLLStack list = new IntLLStack();
         list.push(8);
         list.push(9);
@@ -29,12 +33,27 @@ public class IntLLStackTest {
         System.out.println(list);
     }
 
-    private static void push() {
+    private static void testPush() {
         IntLLStack list = new IntLLStack();
         list.push(2);
         list.push(4);
         list.push(7);
         System.out.println(list);
     }
+
+    
+    public static void empty(){
+        IntArrayStack arr =  new IntArrayStack();
+        arr.push(1);
+        arr.push(2);
+        arr.push(3);
+        arr.push(4);
+        arr.push(5);
+        arr.push(6);
+        System.out.println(arr.empty());
+
+    }
+
+    
 
 }
