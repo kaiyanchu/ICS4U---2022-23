@@ -68,5 +68,9 @@ public class IntLLStack {
         result += "}";
         return result;
     }
+
+    public IntNode getFront(){
+        return head;
+    }
 }
 
