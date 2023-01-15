@@ -48,4 +48,7 @@ public class IntArrayStack {
         return arr;
     }
 
+    public int size(){
+        return arr.length;
+    }
 }
