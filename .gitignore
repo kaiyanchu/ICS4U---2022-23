@@ -874,3 +874,8 @@ Data Structures in Java/bin/IntArrayQueue.class
 Data Structures in Java/bin/IntLLQueue.class
 Data Structures in Java/bin/TestIntLLQueue.class
 Data Structures in Java/bin/TestLinkedList.class
+Data Structures in Java/bin/TestQueue.class
+Data Structures in Java/bin/TestArrayQueue.class
+.gitignore
+.gitignore
+Data Structures in Java/bin/TestLLQueue.class

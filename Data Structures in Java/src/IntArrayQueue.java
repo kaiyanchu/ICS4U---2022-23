@@ -17,6 +17,7 @@ public class IntArrayQueue {
         for (int index = 1; index < arr.length; index++) {
             temp[index-1] = arr[index];
         }
+        arr = temp;
         manyItems--;
     }
 
@@ -33,8 +34,8 @@ public class IntArrayQueue {
         return manyItems==0;
     }
 
-    public int size(){
-        return arr.length;
+    public int[] getArray(){
+        return arr;
     }
 
 

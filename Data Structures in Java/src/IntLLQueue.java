@@ -25,4 +25,8 @@ public class IntLLQueue {
     public Integer peek(){
         return data.get(0);
     }
+
+    public IntLinkedList getList(){
+        return data;
+    }
 }
